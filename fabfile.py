@@ -57,7 +57,8 @@ def install_app():
         run('mkdir -p %s' % config.remote_app_dir)
     update()
     with cd(config.remote_app_dir):
-        run('virtualenv venv --prompt="(%s)"' % config.app_name)
+        if not exists('venv/'):
+            run('virtualenv venv --prompt="(%s)"' % config.app_name)
         with prefix('source venv/bin/activate'):
             run('pip install -r requirements.txt')
 
