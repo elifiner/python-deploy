@@ -22,7 +22,10 @@ def _install_requirements():
         sudo('apt-get install -y python-virtualenv')
         sudo('apt-get install -y nginx')
         sudo('apt-get install -y supervisor')
-        sudo('apt-get install -y git')
+        sudo('apt-get install -y python-dev')
+        sudo('apt-get install -y libxml2-dev')
+        sudo('apt-get install -y libxslt-dev')
+        sudo('apt-get install -y lib32z1-dev')
 
 def _configure_supervisor():
     if exists(system_supervisor_conf):
